@@ -17,6 +17,8 @@ export const Colors = {
   primary: '#E14032',
   success: '#28a745',
   error: '#dc3545',
+  appThemeColorOrange: '#FE5826',
+  charcoal: '#111111',
 }
 
 export const NavigationColors = {
