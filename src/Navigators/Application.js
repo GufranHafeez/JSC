@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, StatusBar,View,Text } from 'react-native'
+import { SafeAreaView, StatusBar, View, Text } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 import { StartupContainer } from '@/Containers'
@@ -16,7 +16,7 @@ const Stack = createStackNavigator()
 
 // @refresh reset
 const ApplicationNavigator = () => {
-  const { Layout,Gutters, darkMode, NavigationTheme } = useTheme()
+  const { Layout, Gutters, darkMode, NavigationTheme } = useTheme()
   const { colors } = NavigationTheme
   const netinfo = useNetInfo()
   console.log('ê43434')
@@ -27,48 +27,48 @@ const ApplicationNavigator = () => {
   })
   return (
     <SafeAreaView style={[Layout.fill, { backgroundColor: Colors.charcoal }]}>
-    {netinfo.isConnected ? (
-      <NavigationContainer theme={NavigationTheme} ref={navigationRef}>
-        <StatusBar barStyle={darkMode ? 'light-content' : 'dark-content'} />
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          {/*<Stack.Screen name="Startup" component={StartupContainer} />*/}
-          <Stack.Screen
-            name="Main"
-            component={MainNavigator}
-            options={{
-              animationEnabled: false,
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      {netinfo.isConnected ? (
+        <NavigationContainer theme={NavigationTheme} ref={navigationRef}>
+          <StatusBar barStyle={darkMode ? 'light-content' : 'dark-content'} />
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            {/*<Stack.Screen name="Startup" component={StartupContainer} />*/}
+            <Stack.Screen
+              name="Main"
+              component={MainNavigator}
+              options={{
+                animationEnabled: false,
+              }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
       ) : (
         <View
-        style={[
-          [
-            Layout.colCenter,
-            Gutters.smallHPadding,
-            {
-              alignContent: 'center',
-              alignItems: 'center',
-              alignSelf: 'center',
-              marginVertical: 360,
-              backgroundColor: Colors.transparent,
-            },
-          ],
-        ]}
-      >
-        <Icon name="wifi-off" size={50} color={Colors.appThemeColorOrange} />
-        <Text
-          style={{
-            fontSize: 20,
-            fontWeight: 'bold',
-            color: Colors.white,
-          }}
+          style={[
+            [
+              Layout.colCenter,
+              Gutters.smallHPadding,
+              {
+                alignContent: 'center',
+                alignItems: 'center',
+                alignSelf: 'center',
+                marginVertical: 360,
+                backgroundColor: Colors.transparent,
+              },
+            ],
+          ]}
         >
-          You are currently Offline.
-        </Text>
-      </View>
-    )}
+          <Icon name="wifi-off" size={50} color={Colors.appThemeColorOrange} />
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+              color: Colors.white,
+            }}
+          >
+            You are currently Offline.
+          </Text>
+        </View>
+      )}
     </SafeAreaView>
   )
 }
